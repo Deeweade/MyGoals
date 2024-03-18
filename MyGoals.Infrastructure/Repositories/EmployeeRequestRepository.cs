@@ -19,6 +19,10 @@ namespace MyGoals.Infrastructure.Repositories
         {
             return await _context.EmployeeRequests
                 .AsNoTracking()
+                .Include(x => x.RequestStatus)
+                .Include(x => x.Employee)
+                .Include(x => x.GroupRequest)
+                .Include(x => x.Period)
                 .Where(x => x.EntityStateId == (int)EntityStates.Active)
                 .ToListAsync();
         }
@@ -27,6 +31,10 @@ namespace MyGoals.Infrastructure.Repositories
         {
             return await _context.EmployeeRequests
                 .AsNoTracking()
+                .Include(x => x.RequestStatus)
+                .Include(x => x.Employee)
+                .Include(x => x.GroupRequest)
+                .Include(x => x.Period)
                 .FirstOrDefaultAsync(er => er.Code == code && er.Code == (int)EntityStates.Active);
         }
 
