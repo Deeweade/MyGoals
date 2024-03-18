@@ -5,11 +5,11 @@ namespace MyGoals.Domain.Repositories
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetAll();
-        Employee GetById(int id);
-        Employee Add(Employee employee);
-        Employee Update(Employee employee);
-        void Delete(int id);
+        Task<IEnumerable<Employee>> GetAllAsync();
+        Task<Employee> GetByIdAsync(int id);
+        Task<Employee> AddAsync(Employee employee);
+        Task<Employee> UpdateAsync(Employee employee);
+        Task DeleteAsync(int id);
     }
 }
 

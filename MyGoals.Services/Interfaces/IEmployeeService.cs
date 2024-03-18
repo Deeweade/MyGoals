@@ -1,15 +1,14 @@
-﻿using System;
-using MyGoals.Domain.Entities;
+﻿using MyGoals.Domain.Entities;
 
 namespace MyGoals.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        IEnumerable<Employee> GetAllEmployees();
-        Employee GetEmployeeById(int id);
-        Employee CreateEmployee(Employee employee);
-        Employee UpdateEmployee(Employee employee);
-        void DeleteEmployee(int id);
+        Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+        Task<Employee> GetEmployeeByIdAsync(int id);
+        Task<Employee> CreateEmployeeAsync(Employee employee);
+        Task<Employee> UpdateEmployeeAsync(Employee employee);
+        Task DeleteEmployeeAsync(int id);
     }
 }
 

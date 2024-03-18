@@ -17,16 +17,16 @@ namespace EmployeeApp.Controllers
 
         [Route("all")]
         [HttpGet]
-        public ActionResult<IEnumerable<Employee>> GetEmployees()
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployeesAsync()
         {
-            var employees = _employeeService.GetAllEmployees();
+            var employees = await _employeeService.GetAllEmployeesAsync();
             return Ok(employees);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Employee> GetEmployee(int id)
+        public async Task<ActionResult<Employee>> GetEmployeeAsync(int id)
         {
-            var employee = _employeeService.GetEmployeeById(id);
+            var employee = await _employeeService.GetEmployeeByIdAsync(id);
             if (employee == null)
             {
                 return NotFound();
@@ -35,32 +35,32 @@ namespace EmployeeApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Employee> PostEmployee(Employee employee)
+        public async Task<ActionResult<Employee>> PostEmployeeAsync(Employee employee)
         {
-            var result = _employeeService.CreateEmployee(employee);
-            return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, result);
+            var result = await _employeeService.CreateEmployeeAsync(employee);
+            return CreatedAtAction(nameof(GetEmployeeAsync), new { id = employee.Id }, result);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutEmployee(int id, Employee employee)
+        public async Task<IActionResult> PutEmployeeAsync(int id, Employee employee)
         {
             if (id != employee.Id)
             {
                 return BadRequest();
             }
-            var result = _employeeService.UpdateEmployee(employee);
+            var result = await _employeeService.UpdateEmployeeAsync(employee);
             return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteEmployee(int id)
+        public async Task<IActionResult> DeleteEmployeeAsync(int id)
         {
-            var employee = _employeeService.GetEmployeeById(id);
+            var employee = _employeeService.GetEmployeeByIdAsync(id);
             if (employee == null)
             {
                 return NotFound();
             }
-            _employeeService.DeleteEmployee(id);
+            await _employeeService.DeleteEmployeeAsync(id);
             return NoContent();
         }
     }

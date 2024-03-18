@@ -15,39 +15,39 @@ namespace MyGoals.Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<Employee> GetAll()
+        public async Task<IEnumerable<Employee>> GetAllAsync()
         {
-            return _context.Employees.AsNoTracking().ToList();
+            return await _context.Employees.AsNoTracking().ToListAsync();
         }
 
-        public Employee GetById(int id)
+        public async Task<Employee> GetByIdAsync(int id)
         {
-            return _context.Employees.AsNoTracking().FirstOrDefault(e => e.Id == id);
+            return await _context.Employees.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public Employee Add(Employee employee)
+        public async Task<Employee> AddAsync(Employee employee)
         {
             _context.Employees.Add(employee);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return employee;
         }
 
-        public Employee Update(Employee employee)
+        public async Task<Employee> UpdateAsync(Employee employee)
         {
             _context.Employees.Update(employee);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return employee;
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var employee = GetById(id);
+            var employee = await GetByIdAsync(id);
             if (employee != null)
             {
                 _context.Employees.Remove(employee);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
     }

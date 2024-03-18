@@ -1,6 +1,6 @@
-﻿using MyGoals.Domain.Entities;
+﻿using MyGoals.Services.Interfaces;
 using MyGoals.Domain.Repositories;
-using MyGoals.Services.Interfaces;
+using MyGoals.Domain.Entities;
 
 namespace MyGoals.Services.Services;
 
@@ -13,29 +13,29 @@ public class EmployeeService : IEmployeeService
         _employeeRepository = employeeRepository;
     }
 
-    public IEnumerable<Employee> GetAllEmployees()
+    public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
     {
-        return _employeeRepository.GetAll();
+        return await _employeeRepository.GetAllAsync();
     }
 
-    public Employee GetEmployeeById(int id)
+    public async Task<Employee> GetEmployeeByIdAsync(int id)
     {
-        return _employeeRepository.GetById(id);
+        return await _employeeRepository.GetByIdAsync(id);
     }
 
-    public Employee CreateEmployee(Employee employee)
+    public async Task<Employee> CreateEmployeeAsync(Employee employee)
     {
-        return _employeeRepository.Add(employee);
+        return await _employeeRepository.AddAsync(employee);
     }
 
-    public Employee UpdateEmployee(Employee employee)
+    public async Task<Employee> UpdateEmployeeAsync(Employee employee)
     {
-        return _employeeRepository.Update(employee);
+        return await _employeeRepository.UpdateAsync(employee);
     }
 
-    public void DeleteEmployee(int id)
+    public async Task DeleteEmployeeAsync(int id)
     {
-        _employeeRepository.Delete(id);
+        await _employeeRepository.DeleteAsync(id);
     }
 }
 
