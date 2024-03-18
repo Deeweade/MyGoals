@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyGoals.Infrastructure.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MyGoals.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240318185853_GoalNullReferencesEnabled")]
+    partial class GoalNullReferencesEnabled
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,7 +210,6 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("Code")
-                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("DateEnd")
@@ -304,6 +306,9 @@ namespace MyGoals.API.Migrations
                     b.Property<int?>("EmployeeRequestCode")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("EmployeeRequestId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("EntityStateId")
                         .HasColumnType("integer");
 
@@ -354,6 +359,8 @@ namespace MyGoals.API.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.HasIndex("EmployeeRequestCode");
+
+                    b.HasIndex("EmployeeRequestId");
 
                     b.HasIndex("GoalTypeId");
 
@@ -662,10 +669,12 @@ namespace MyGoals.API.Migrations
                         .HasForeignKey("EmployeeId");
 
                     b.HasOne("MyGoals.Domain.Entities.EmployeeRequest", "EmployeeRequest")
+                        .WithMany()
+                        .HasForeignKey("EmployeeRequestCode");
+
+                    b.HasOne("MyGoals.Domain.Entities.EmployeeRequest", null)
                         .WithMany("Goals")
-                        .HasForeignKey("EmployeeRequestCode")
-                        .HasPrincipalKey("Code")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("EmployeeRequestId");
 
                     b.HasOne("MyGoals.Domain.Entities.GoalType", "GoalType")
                         .WithMany("Goals")

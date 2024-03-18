@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using MyGoals.Domain.Entities;
+using MyGoals.Domain.Enums;
 
 namespace MyGoals.Infrastructure.Configurations
 {
@@ -8,31 +9,22 @@ namespace MyGoals.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Goal> builder)
         {
-            builder.HasOne<EmployeeRequest>()
-                .WithMany(er => er.Goals)
-                .HasForeignKey(g => g.EmployeeRequestCode);
+            builder.HasOne(g => g.EmployeeRequest)
+                .WithMany(e => e.Goals)
+                .HasForeignKey(g => g.EmployeeRequestCode)
+                .HasPrincipalKey(e => e.Code)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasQueryFilter(er => er.EntityStateId == (int)Domain.Enums.EntityStates.Active);
+            //builder.HasQueryFilter(g => g.EmployeeRequest.EntityStateId == (int)EntityStates.Active);
 
-            //builder.HasOne<GoalType>()
-            //    .WithMany(x => x.Goals)
-            //    .HasForeignKey(x => x.GoalTypeId);
+            //builder.HasAlternateKey(er => new { er.Code, er.EntityStateId });
 
-            //builder.HasOne<Period>()
-            //    .WithMany(x => x.Goals)
-            //    .HasForeignKey(x => x.PeriodId);
+            //builder.HasOne<EmployeeRequest>()
+            //    .WithMany(er => er.Goals)
+            //    .HasForeignKey(x => new { x.Code, x.EntityStateId });
 
-            //builder.HasOne<Employee>()
-            //    .WithMany(x => x.Goals)
-            //    .HasForeignKey(x => x.EmployeeId);
-
-            //builder.HasOne<KeyResultType>()
-            //    .WithMany(x => x.Goals)
-            //    .HasForeignKey(x => x.KeyResultTypeId);
-
-            //builder.HasOne<TypicalGoal>()
-            //    .WithMany(x => x.Goals)
-            //    .HasForeignKey(x => x.TypicalGoalId);
+            //builder.HasQueryFilter(er => er.EntityStateId == (int)Domain.Enums.EntityStates.Active);
 
             builder.HasMany<Comment>()
                 .WithOne(x => x.Goal)

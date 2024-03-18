@@ -18,7 +18,7 @@ namespace MyGoals.API.Controllers
         // GET: api/Goal
         [Route("all")]
         [HttpGet]
-        public async Task<IActionResult> GetGoals()
+        public async Task<IActionResult> GetGoalsAsync()
         {
             var goals = await _goalService.GetAllGoalsAsync();
 
@@ -27,7 +27,7 @@ namespace MyGoals.API.Controllers
 
         // GET: api/Goal/5
         [HttpGet("{code}")]
-        public async Task<IActionResult> GetGoal(int code)
+        public async Task<IActionResult> GetGoalAsync(int code)
         {
             var goal = await _goalService.GetGoalByCodeAsync(code);
 
@@ -41,7 +41,7 @@ namespace MyGoals.API.Controllers
 
         // POST: api/Goal
         [HttpPost]
-        public async Task<IActionResult> PostGoal(Goal goal)
+        public async Task<IActionResult> PostGoalAsync(Goal goal)
         {
             if (!ModelState.IsValid)
             {
@@ -50,12 +50,12 @@ namespace MyGoals.API.Controllers
 
             var createdGoal = await _goalService.CreateGoalAsync(goal);
 
-            return CreatedAtAction(nameof(GetGoal), new { code = createdGoal.Code }, createdGoal);
+            return CreatedAtAction(nameof(GetGoalAsync), new { code = createdGoal.Code }, createdGoal);
         }
 
         // PUT: api/Goal/5
         [HttpPut("{code}")]
-        public async Task<IActionResult> PutGoal(int code, [FromBody] Goal goal)
+        public async Task<IActionResult> PutGoalAsync(int code, [FromBody] Goal goal)
         {
             if (code != goal.Code)
             {
@@ -69,7 +69,7 @@ namespace MyGoals.API.Controllers
 
         // DELETE: api/Goal/5
         [HttpDelete("{code}")]
-        public async Task<IActionResult> DeleteGoal(int code)
+        public async Task<IActionResult> DeleteGoalAsync(int code)
         {
             var goal = await _goalService.GetGoalByCodeAsync(code);
 

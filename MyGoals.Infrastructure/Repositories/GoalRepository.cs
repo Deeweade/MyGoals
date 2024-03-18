@@ -17,12 +17,23 @@ namespace MyGoals.Infrastructure.Repositories
 
         public async Task<IEnumerable<Goal>> GetAllAsync()
         {
-            return await _context.Goals.ToListAsync();
+            return await _context.Goals
+                .AsNoTracking()
+                .Include(x => x.Period)
+                .Include(x => x.Employee)
+                .Include(x => x.EmployeeRequest)
+                .Include(x => x.Comments)
+                .ToListAsync();
         }
 
         public async Task<Goal> GetActiveByCodeAsync(int code)
         {
             return await _context.Goals
+                 .AsNoTracking()
+                .Include(x => x.Period)
+                .Include(x => x.Employee)
+                .Include(x => x.EmployeeRequest)
+                .Include(x => x.Comments)
                 .FirstOrDefaultAsync(x => x.Code == code && x.EntityStateId == (int)EntityStates.Active);
         }
 
@@ -30,9 +41,9 @@ namespace MyGoals.Infrastructure.Repositories
         {
             if (goal is null) throw new ArgumentNullException(nameof(goal));
 
-            var maxCode = await _context.Goals.MaxAsync(x => x.Code);
+            var maxCode = await _context.Goals.Select(x => x.Code).MaxAsync();
 
-            if (maxCode == 0) maxCode = 10000000;
+            if (maxCode is null || maxCode == 0) maxCode = 10000000;
 
             goal.Code = ++maxCode;
             goal.DateStart = DateTime.Now;

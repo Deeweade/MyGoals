@@ -33,14 +33,12 @@ namespace MyGoals.Domain.Entities
         [IgnoreDataMember]
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
-        public virtual Employee Employee { get; set; }
-        public virtual GoalType GoalType { get; set; }
-        public virtual Period Period { get; set; }
-        public virtual KeyResultType KeyResultType { get; set; }
-        //[ForeignKey("EmployeeRequestCode")]
-        //[InverseProperty("Goals")]
-        public virtual EmployeeRequest EmployeeRequest { get; set; }
-        public virtual TypicalGoal TypicalGoal { get; set; }
+        public virtual Employee? Employee { get; set; }
+        public virtual GoalType? GoalType { get; set; }
+        public virtual Period? Period { get; set; }
+        public virtual KeyResultType? KeyResultType { get; set; }
+        public virtual EmployeeRequest? EmployeeRequest { get; set; }
+        public virtual TypicalGoal? TypicalGoal { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using MyGoals.API.Exceptions;
+﻿using Microsoft.EntityFrameworkCore;
+using MyGoals.API.Exceptions;
 using System.Text.Json;
 
 namespace MyGoals.API.Middlewares
@@ -33,13 +34,23 @@ namespace MyGoals.API.Middlewares
             {
                 BadRequestException => StatusCodes.Status400BadRequest,
                 NotFoundException => StatusCodes.Status404NotFound,
+                DbUpdateException => StatusCodes.Status500InternalServerError,
                 _ => StatusCodes.Status500InternalServerError
             };
 
             var response = new
             {
-                error = exception.Message
+                errors = new List<string>()
             };
+
+            var innerException = exception;
+
+            while (innerException is not null)
+            {
+                response.errors.Add(innerException.Message);
+
+                innerException = innerException.InnerException;
+            }
 
             await httpContext.Response.WriteAsync(JsonSerializer.Serialize(response));
         }

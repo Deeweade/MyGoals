@@ -8,27 +8,24 @@ namespace MyGoals.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<EmployeeRequest> builder)
         {
-            builder.HasMany<Goal>()
-                .WithOne(er => er.EmployeeRequest)
-                .HasForeignKey(g => g.EmployeeRequestCode);
+        //    // Альтернативный ключ для EmployeeRequest
+        //    builder.HasAlternateKey(er => new { er.Code, er.EntityStateId });
 
-            builder.HasQueryFilter(er => er.EntityStateId == (int)Domain.Enums.EntityStates.Active);
+        //    // Ограничение на значение EntityStateId
+        //    //builder.HasCheckConstraint("CK_EmployeeRequest_EntityStateId", "EntityStateId = 1");
 
-            //builder.HasOne<GroupRequest>()
-            //    .WithMany(x => x.EmployeeRequests)
-            //    .HasForeignKey(x => x.GroupRequestId);
+        //    //builder.HasMany<Goal>()
+        //    //    .WithOne(er => er.EmployeeRequest)
+        //    //    .HasForeignKey(x => new { x.Id, x.Code, x.EntityStateId });
 
-            //builder.HasOne<Period>()
-            //    .WithMany(x => x.EmployeeRequests)
-            //    .HasForeignKey(x => x.PeriodId);
+        //    builder.HasQueryFilter(er => er.EntityStateId == (int)Domain.Enums.EntityStates.Active);
 
-            //builder.HasOne<Employee>()
-            //    .WithMany(x => x.EmployeeRequests)
-            //    .HasForeignKey(x => x.EmployeeId);
-
-            //builder.HasOne<RequestStatus>()
-            //    .WithMany(x => x.EmployeeRequests)
-            //    .HasForeignKey(x => x.RequestStatusId);
+            builder.HasMany(e => e.Goals)
+                .WithOne(g => g.EmployeeRequest)
+                .HasForeignKey(g => g.EmployeeRequestCode)
+                .HasPrincipalKey(e => e.Code)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

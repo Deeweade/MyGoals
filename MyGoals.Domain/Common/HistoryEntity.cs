@@ -1,4 +1,6 @@
-﻿namespace MyGoals.Domain.Common
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MyGoals.Domain.Common
 {
     public abstract class HistoryEntity : BaseEntity
     {

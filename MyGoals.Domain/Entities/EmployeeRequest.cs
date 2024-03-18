@@ -1,4 +1,5 @@
-﻿using MyGoals.Domain.Common;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using MyGoals.Domain.Common;
 
 namespace MyGoals.Domain.Entities
 {
@@ -20,6 +21,6 @@ namespace MyGoals.Domain.Entities
         public virtual RequestStatus? RequestStatus { get; set; }
         public virtual Period? Period { get; set; }
 
-        public virtual ICollection<Goal> Goals { get; set; }
+        public virtual ICollection<Goal>? Goals { get; set; }
     }
 }
