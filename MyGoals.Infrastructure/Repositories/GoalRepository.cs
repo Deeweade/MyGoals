@@ -23,7 +23,9 @@ namespace MyGoals.Infrastructure.Repositories
                 .Include(x => x.Employee)
                 .Include(x => x.EmployeeRequest)
                 .Include(x => x.Comments)
+                .Include(x => x.GoalType)
                 .Include(x => x.KeyResultType)
+                .Include(x => x.TypicalGoal)
                 .ToListAsync();
         }
 
@@ -36,6 +38,8 @@ namespace MyGoals.Infrastructure.Repositories
                 .Include(x => x.EmployeeRequest)
                 .Include(x => x.Comments)
                 .Include(x => x.KeyResultType)
+                .Include(x => x.GoalType)
+                .Include(x => x.TypicalGoal)
                 .FirstOrDefaultAsync(x => x.Code == code && x.EntityStateId == (int)EntityStates.Active);
         }
 

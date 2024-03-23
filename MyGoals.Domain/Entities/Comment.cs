@@ -2,7 +2,7 @@
 
 namespace MyGoals.Domain.Entities
 {
-    public class Comment : BaseEntity//, IHasDomainEvent
+    public class Comment : BaseEntity
     {
         public string? Text { get; set; }
         public int? EmployeeId { get; set; }
