@@ -5,11 +5,6 @@ namespace MyGoals.Domain.Entities
 {
     public class EmployeeRequest : HistoryEntity
     {
-        public EmployeeRequest()
-        {
-            this.Goals = new HashSet<Goal>();
-        }
-
         public int? GroupRequestId { get; set; }
         public int? EmployeeId { get; set; }
         public int? RequestStatusId { get; set; }

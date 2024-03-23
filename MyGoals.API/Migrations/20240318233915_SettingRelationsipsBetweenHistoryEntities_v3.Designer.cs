@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyGoals.Infrastructure.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MyGoals.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240318233915_SettingRelationsipsBetweenHistoryEntities_v3")]
+    partial class SettingRelationsipsBetweenHistoryEntities_v3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,6 +34,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -50,6 +54,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -77,6 +82,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Text")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -99,6 +105,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AdmManager")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("AmountSubordinate")
@@ -111,15 +118,18 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Fio")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("FuncManager")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool?>("Gender")
+                    b.Property<bool>("Gender")
                         .HasColumnType("boolean");
 
                     b.Property<int?>("HeadOffice")
@@ -128,52 +138,62 @@ namespace MyGoals.API.Migrations
                     b.Property<DateTime?>("HireDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool?>("IsActive")
+                    b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<bool?>("IsManager")
+                    b.Property<bool>("IsManager")
                         .HasColumnType("boolean");
 
-                    b.Property<bool?>("IsStaffMember")
+                    b.Property<bool>("IsStaffMember")
                         .HasColumnType("boolean");
 
-                    b.Property<int?>("Levels")
+                    b.Property<int>("Levels")
                         .HasColumnType("integer");
 
                     b.Property<string>("Login")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("Parent")
                         .HasColumnType("integer");
 
                     b.Property<string>("Parents")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhotoUrl")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Position")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PositionNum")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("State")
                         .HasColumnType("integer");
 
                     b.Property<string>("TabNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Unit")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UnitManager")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UnitNum")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UnitParentNum")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -239,6 +259,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -255,6 +276,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -298,9 +320,11 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("JiraEpicLink")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("JiraGantLink")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("KeyResultTypeId")
@@ -319,6 +343,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("TypicalGoalId")
@@ -353,6 +378,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -369,6 +395,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -391,6 +418,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("PeriodId")
@@ -414,6 +442,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -429,19 +458,20 @@ namespace MyGoals.API.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("DateEnd")
+                    b.Property<DateTime>("DateEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("DateStart")
+                    b.Property<DateTime>("DateStart")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("QuarterNumber")
+                    b.Property<int>("QuarterNumber")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("YearNumber")
+                    b.Property<int>("YearNumber")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -489,6 +519,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("NextStatusId")
@@ -541,6 +572,7 @@ namespace MyGoals.API.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BonusScheme")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int?>("GoalTypeId")
@@ -556,6 +588,7 @@ namespace MyGoals.API.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<decimal?>("Weight")

@@ -1,8 +1,8 @@
-﻿using MyGoals.Domain.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using MyGoals.Domain.Repositories;
 using MyGoals.Infrastructure.Data;
 using MyGoals.Domain.Entities;
 using MyGoals.Domain.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace MyGoals.Infrastructure.Repositories
 {
@@ -23,6 +23,7 @@ namespace MyGoals.Infrastructure.Repositories
                 .Include(x => x.Employee)
                 .Include(x => x.EmployeeRequest)
                 .Include(x => x.Comments)
+                .Include(x => x.KeyResultType)
                 .ToListAsync();
         }
 
@@ -34,6 +35,7 @@ namespace MyGoals.Infrastructure.Repositories
                 .Include(x => x.Employee)
                 .Include(x => x.EmployeeRequest)
                 .Include(x => x.Comments)
+                .Include(x => x.KeyResultType)
                 .FirstOrDefaultAsync(x => x.Code == code && x.EntityStateId == (int)EntityStates.Active);
         }
 
@@ -52,6 +54,7 @@ namespace MyGoals.Infrastructure.Repositories
 
             _context.Goals.Add(goal);
             await _context.SaveChangesAsync();
+
             return goal;
         }
 
@@ -68,6 +71,7 @@ namespace MyGoals.Infrastructure.Repositories
             currentGoal.EntityStateId = (int)EntityStates.Cancelled;
 
             goal.DateStart = dateEnd;
+            goal.DateEnd = DateTime.MaxValue;
             goal.EntityStateId = (int)EntityStates.Active;
 
             _context.Goals.Add(goal);

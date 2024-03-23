@@ -1,25 +1,17 @@
-﻿using MyGoals.Domain.Interfaces;
-using MyGoals.Domain.Common;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.Serialization;
+﻿using MyGoals.Domain.Common;
 
 namespace MyGoals.Domain.Entities
 {
-    public class Goal : HistoryEntity, IHasDomainEvent
+    public class Goal : HistoryEntity//, IHasDomainEvent
     {
-        public Goal()
-        {
-            this.Comments = new HashSet<Comment>();
-        }
-
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public decimal? Weight { get; set; }
         public decimal? PlanValue { get; set; }
         public decimal? FactValue { get; set; }
         public decimal? SelfFactValue { get; set; }
         public int? ParentGoalCode { get; set; }
-        public string JiraEpicLink { get; set; }
-        public string JiraGantLink { get; set; }
+        public string? JiraEpicLink { get; set; }
+        public string? JiraGantLink { get; set; }
         public bool? IsHidden { get; set; }
 
         public int? GoalTypeId { get; set; }
@@ -29,10 +21,6 @@ namespace MyGoals.Domain.Entities
         public int? TypicalGoalId { get; set; }
         public int? EmployeeRequestCode { get; set; }
 
-        [NotMapped]
-        [IgnoreDataMember]
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
         public virtual Employee? Employee { get; set; }
         public virtual GoalType? GoalType { get; set; }
         public virtual Period? Period { get; set; }
@@ -40,7 +28,7 @@ namespace MyGoals.Domain.Entities
         public virtual EmployeeRequest? EmployeeRequest { get; set; }
         public virtual TypicalGoal? TypicalGoal { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment>? Comments { get; set; }
 
         public bool Equals(Goal goal)
         {

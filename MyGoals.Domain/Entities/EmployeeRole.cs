@@ -4,14 +4,9 @@ namespace MyGoals.Domain.Entities
 {
     public class EmployeeRole : BaseEntity
     {
-        public EmployeeRole()
-        {
-            this.RequestStatuses = new HashSet<RequestStatus>();
-        }
+        public string? Title { get; set; }
 
-        public string Title { get; set; }
-
-        public virtual ICollection<RequestStatus> RequestStatuses { get; set; }
+        public virtual ICollection<RequestStatus>? RequestStatuses { get; set; }
     }
 
 }
