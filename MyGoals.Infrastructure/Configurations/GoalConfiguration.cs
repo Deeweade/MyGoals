@@ -19,7 +19,8 @@ namespace MyGoals.Infrastructure.Configurations
 
             builder.HasMany<Comment>()
                 .WithOne(x => x.Goal)
-                .HasForeignKey(x => x.GoalCode);
+                .HasForeignKey(x => x.GoalCode)
+                .HasPrincipalKey(x => x.Code);
         }
     }
 }

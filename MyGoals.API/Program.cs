@@ -35,12 +35,16 @@ builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeRequestRepository, EmployeeRequestRepository>();
 builder.Services.AddScoped<IGoalRepository, GoalRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IPeriodRepository, PeriodRepository>();
 
 //adding services
 builder.Services.AddScoped<IHomeService, HomeService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRequestService, EmployeeRequestService>();
 builder.Services.AddScoped<IGoalService, GoalService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IPeriodService, PeriodService>();
 
 var app = builder.Build();
 

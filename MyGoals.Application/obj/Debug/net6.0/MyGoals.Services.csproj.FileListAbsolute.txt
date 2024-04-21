@@ -1,0 +1,15 @@
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/bin/Debug/net6.0/MyGoals.Services.deps.json
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/bin/Debug/net6.0/MyGoals.Services.dll
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/bin/Debug/net6.0/MyGoals.Services.pdb
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/bin/Debug/net6.0/MyGoals.Domain.dll
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/bin/Debug/net6.0/MyGoals.Domain.pdb
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.csproj.AssemblyReference.cache
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.AssemblyInfoInputs.cache
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.AssemblyInfo.cs
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.csproj.CoreCompileInputs.cache
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.csproj.CopyComplete
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.dll
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/refint/MyGoals.Services.dll
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/MyGoals.Services.pdb
+/Users/deeweade/Projects/MyGoals/MyGoals.Services/obj/Debug/net6.0/ref/MyGoals.Services.dll

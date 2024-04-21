@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/deeweade/Projects/MyGoals/MyGoals.Application/MyGoals.Services.csproj": {}
+  },
+  "projects": {
+    "/Users/deeweade/Projects/MyGoals/MyGoals.Application/MyGoals.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/deeweade/Projects/MyGoals/MyGoals.Application/MyGoals.Services.csproj",
+        "projectName": "MyGoals.Services",
+        "projectPath": "/Users/deeweade/Projects/MyGoals/MyGoals.Application/MyGoals.Services.csproj",
+        "packagesPath": "/Users/deeweade/.nuget/packages/",
+        "outputPath": "/Users/deeweade/Projects/MyGoals/MyGoals.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/deeweade/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/MyGoals.Domain.csproj": {
+                "projectPath": "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/MyGoals.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/MyGoals.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/MyGoals.Domain.csproj",
+        "projectName": "MyGoals.Domain",
+        "projectPath": "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/MyGoals.Domain.csproj",
+        "packagesPath": "/Users/deeweade/.nuget/packages/",
+        "outputPath": "/Users/deeweade/Projects/MyGoals/MyGoals.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/deeweade/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

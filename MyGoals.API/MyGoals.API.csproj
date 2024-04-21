@@ -29,10 +29,10 @@
     <ProjectReference Include="..\MyGoals.Domain\MyGoals.Domain.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\MyGoals.Services\MyGoals.Services.csproj">
+    <ProjectReference Include="..\MyGoals.Infrastructure\MyGoals.Infrastructure.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\MyGoals.Infrastructure\MyGoals.Infrastructure.csproj">
+    <ProjectReference Include="..\MyGoals.Application\MyGoals.Application.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

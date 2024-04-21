@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MyGoals.Services/1.0.0": {
+        "dependencies": {
+          "MyGoals.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MyGoals.Services.dll": {}
+        }
+      },
+      "MyGoals.Domain/1.0.0": {
+        "runtime": {
+          "MyGoals.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyGoals.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyGoals.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
